@@ -1,0 +1,30 @@
+<div class="container mt-5">
+    <h3>Conversion History</h3>
+    <div *ngIf="conversionHistory.length > 0; else noHistory">
+      <table class="table table-bordered table-striped">
+        <thead>
+          <tr>
+            <th>Date & Time</th>
+            <th>From</th>
+            <th>To</th>
+            <th>Amount</th>
+            <th>Result</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let record of conversionHistory">
+            <td>{{ record.date }}</td>
+            <td>{{ record.from }}</td>
+            <td>{{ record.to }}</td>
+            <td>{{ record.amount }}</td>
+            <td>{{ record.result }}</td>
+          </tr>
+        </tbody>
+      </table>
+      <button class="btn btn-danger" (click)="clearHistory()">Clear History</button>
+    </div>
+    <ng-template #noHistory>
+      <p>No conversion history available.</p>
+    </ng-template>
+  </div>
+  
